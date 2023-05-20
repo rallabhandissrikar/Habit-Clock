@@ -3,7 +3,7 @@ from datetime import *
 import datetime as datetime
 import random
 
-client = MongoClient("mongodb://localhost:27017")
+client = MongoClient("mongodb://mongo:ugXMvPJaoWzR9C8ytHgP@containers-us-west-116.railway.app:6568")
 
 def add_Single_Data(database:str, collection:str, data:dict):
     tempDatabase = client[database]
