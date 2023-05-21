@@ -3,7 +3,7 @@ from datetime import *
 import datetime as datetime
 import random
 
-client = MongoClient("mongodb://mongo:ugXMvPJaoWzR9C8ytHgP@containers-us-west-116.railway.app:6568")
+client = MongoClient("mongodb://localhost:27017")
 
 def add_Single_Data(database:str, collection:str, data:dict):
     tempDatabase = client[database]
@@ -213,6 +213,17 @@ def remove_habit(name:str, id:int):
         snap2 = get_single_Data('HC-Ht', name, {'id' : id})
         if snap2 != None:
             remove_single_Doccument('HC-Ht', name, {'id' : id})
+            return True
+        else :
+            return False
+    else :
+        return False
+
+def update_user_passw(name:str, old_passw:str, new_passw:str) :
+    snap1 = get_single_Data('HC', 'users', {'name' : name})
+    if snap1 != None :
+        if str(snap1['passw']) == old_passw:
+            update_single_Doccument('HC', 'users', {'name' : name}, {'passw' : new_passw})
             return True
         else :
             return False
