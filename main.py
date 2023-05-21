@@ -31,9 +31,6 @@ def updatePassword() :
     name_args = request.args.get('name')
     old_passw_args = request.args.get('op')
     new_passw_args = request.args.get('np')
-    print(name_args)
-    print(new_passw_args)
-    print(old_passw_args)
     if name_args and old_passw_args and new_passw_args :
         
         update_status = update_user_passw(name_args, old_passw_args, new_passw_args)
@@ -42,7 +39,7 @@ def updatePassword() :
         else :
             return 'not updated'
     else :
-        return 'cred not given'
+        return 'not updated'
 
 
 @app.route('/addTodo')
@@ -153,4 +150,4 @@ def removeHabit():
 
 
 if __name__ == '__main__':
-    app.run(debug=False, host='0.0.0.0')
+    app.run(debug=True, host='0.0.0.0')
